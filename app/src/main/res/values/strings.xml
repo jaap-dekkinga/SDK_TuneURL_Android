@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TuneURL Demo</string>
+    <string name="main_activity">TuneURL Demo</string>
+    <string name="alert_activity">TuneURL Demo</string>
+
+    <string name="permissions_record_audio">Record audio</string>
+    <string name="permissions_storage">Storage</string>
+    <string name="permissions_wake_lock">Wake device</string>
+    <string name="permissions_internet">Internet</string>
+    <string name="permissions_access_network_state">Network state</string>
+    <string name="permissions_boot_completed">Boot completed</string>
+    <string name="permissions_call_phone">Call phone</string>
+    <string name="permissions_ignore_battery_optimizations">Ignore battery optimizations</string>
+    <string name="permissions_system_alert_window">Draw over other apps</string>
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="main_service_label">TuneURL Demo service is running</string>
+</resources>
