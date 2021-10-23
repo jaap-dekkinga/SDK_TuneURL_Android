@@ -39,7 +39,7 @@ public class SoundListenerService extends Service implements Constants {
 
 	private static final int NOTIFICATION_ID = 1521;
 
-	private static final int DEFAULT_SOUND_THRESHOLD = 88;
+	private static final int DEFAULT_SOUND_THRESHOLD = 90;
 	private static final float SIMILARITY_THRESHOLD = 0.5f;
 	
 	private static final int RECORDER_BPP = 16;
@@ -433,15 +433,19 @@ public class SoundListenerService extends Service implements Constants {
 
 	private double getAmplitude(byte data[], int read){
 
+		short[] short_data = new short[data.length / 2];
+
+		ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(short_data);
+
 		double amplitude = 0;
 
 		if (read > 0) {
 
 			double sum = 0;
 
-			for (int i = 0; i < read; i++) {
+			for (int i = 0; i < (int)(read/2); i++) {
 
-				sum += data[i] * data[i];
+				sum += short_data[i] * short_data[i];
 			}
 
 			double raw_amplitude = sum / read;
@@ -451,6 +455,8 @@ public class SoundListenerService extends Service implements Constants {
 				amplitude = (20d * Math.log10(raw_amplitude * 10));
 			}
 		}
+
+		//System.out.println("amplitude = " + (int)amplitude);
 
 		return amplitude;
 	}
