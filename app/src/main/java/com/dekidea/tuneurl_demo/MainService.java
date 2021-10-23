@@ -1,5 +1,8 @@
 package com.dekidea.tuneurl_demo;
 
+import static android.app.PendingIntent.*;
+
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -87,7 +90,7 @@ public class MainService extends Service implements Constants {
 
 		Intent i = new Intent(this, MainActivity.class);
 
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Create the Foreground Service
 		NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
