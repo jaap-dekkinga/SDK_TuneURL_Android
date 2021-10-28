@@ -9,7 +9,6 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -52,7 +51,7 @@
         <service android:name="com.dekidea.tuneurl.service.APIService" />
 
         <receiver
-            android:name="com.dekidea.tuneurl.receiver.CallReceiver"
+            android:name="com.dekidea.tuneurl.receiver.PhoneStateReceiver"
             android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.PHONE_STATE" />
